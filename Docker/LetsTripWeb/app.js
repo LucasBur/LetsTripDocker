@@ -1,4 +1,7 @@
+//Imports
 const express = require('express')
+
+//Initiate server
 const app = express()
 /** Déclaration du router */
 const routes = require('./routers/router.js')
@@ -10,6 +13,11 @@ app.use('/images', express.static('views/images'));
 
 /** Initialisation du router */
 app.use('/', routes);
+
+app.get('/', function(req, res, next) {
+  res.setHeader('Content-Type', 'text/html');
+  res.status(200).send('<h1> coucou le serveur </h1>');
+});
 
 
 /** Ouverture du server sur le port 2042,
