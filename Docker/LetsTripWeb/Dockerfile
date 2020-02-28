@@ -9,8 +9,12 @@ WORKDIR /home/node/LetsTripWeb
 # where available (npm@5+)
 COPY package.json .
 
-RUN npm install
+RUN npm install 
+RUN npm install bcryptjs
+RUN npm install jsonwebtoken
+RUN npm install body-parser
 RUN npm install mysql
+RUN npm install sequelize
 # If you are building your code for production
 # RUN npm ci --only=production
 

@@ -17,14 +17,14 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
 /** Initialisation du router */
-//app.use('/', routes);
+app.use('/', routes);
 
-app.get('/', function(req, res, next) {
-  res.setHeader('Content-Type', 'text/html');
-  res.status(200).send('<h1> coucou le serveur </h1>');
-});
+// app.get('/', function(req, res, next) {
+//   res.setHeader('Content-Type', 'text/html');
+//   res.status(200).send('<h1> coucou le serveur </h1>');
+// });
 
-app.use('/api/', apiRouter);
+// app.use('/api/', apiRouter);
 
 /** Ouverture du server sur le port 2042,
  * c'est le port sur lequel le site va tourner. */

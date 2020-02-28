@@ -1,12 +1,14 @@
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 var jwtUtils = require('../utils/jwt.utils');
 var models = require('../models');
 
 module.exports = {
     register: function(req, res){
-        var email = req.body.email;
-        var username = req.body.username;
-        var password = req.body.password;
+        
+        var email = req.params.email;
+        // var username = req.params.username;
+        var username = req.params.first_name;
+        var password = req.params.password;
 
         if(email == null || username == null || password == null) {
             return res.status(400).json({ 'error': 'missing parameters'});
@@ -42,7 +44,6 @@ module.exports = {
         .catch(function(err) {
             return res.status(400).json({ 'error': 'unable to verify user'});
         })
-
     },
     longin: function(req, res) {
         var email = req.body.email;

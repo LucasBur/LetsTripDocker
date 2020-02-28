@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     volumes:
-      - .:/home/node/LetsTripWeb
+      - .:/home/node/LetsTripWeb      
     restart: always
     links:
       - db
@@ -29,6 +29,8 @@ services:
       MYSQL_ROOT_PASSWORD: password
     volumes:
       - ./docker/db:/var/lib/mysql
+    security_opt:
+      - seccomp:unconfined
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
